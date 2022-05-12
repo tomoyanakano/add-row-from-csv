@@ -17,6 +17,12 @@ set these values to A - C column on index sheet
 - Csv url 
 - keyColumnIndex
 
-2. run main function
+<img width="346" alt="スクリーンショット 2022-05-12 15 54 19" src="https://user-images.githubusercontent.com/47712031/168009804-4d796984-cec8-4ba4-a528-f135a8587d48.png">
+
+2. make sheet 
+ 
+Create a sheet with the same name as described in the index sheet.
+
+3. run main function
 
 You can confirm write csv's values down to the sheet.
