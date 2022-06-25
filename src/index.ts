@@ -24,7 +24,7 @@ const addRowFromCsv = (
   keyColumnIndex: number,
   data: string[][]
 ) => {
-  const lastRowIndex = sheet.getLastRow() < 1 ? 1 : sheet.getLastRow();
+  const lastRowIndex = sheet.getLastRow() < 1 ? 1 : sheet.getLastRow() + 1;
   const values = sheet.getRange(1, keyColumnIndex, lastRowIndex).getValues();
   const map = new Map<string, { rowIndex: number }>();
   values.map((value, index) =>
@@ -38,7 +38,11 @@ const addRowFromCsv = (
       newValues.push(row);
     }
   }
-  sheet
-    .getRange(lastRowIndex + 1, 1, newValues.length, newValues[0].length)
-    .setValues(newValues);
+
+  if (newValues.length > 0) {
+    sheet
+      .getRange(lastRowIndex, 1, newValues.length, newValues[0].length)
+      .setValues(newValues);
+  }
+  console.log(`${newValues.length} rows added!`);
 };
